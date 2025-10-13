@@ -16,4 +16,5 @@ redirect_from:
 
 ## Work in progress
 
+* Covariance Implied Risk Factors
 * Commodity Risk in Financial Markets (with Josué P. A. Costa)
