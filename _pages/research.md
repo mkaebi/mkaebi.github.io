@@ -8,7 +8,8 @@ redirect_from:
 ---
 
 ## Working papers
-* [Long-Run Interest Rate Differentials and the Profitability of Currency Carry](https://swopec.hhs.se/oruesi/abs/oruesi2025_010.htm) Under review - Journal of Empirical Finance (with Igor F. B. Martins)
+* [Long-Run Interest Rate Differentials and the Profitability of Currency Carry](https://swopec.hhs.se/oruesi/abs/oruesi2025_010.htm) (with Igor F. B. Martins)
+  * Submitted
 * [VIX Futures Term-Structure and Currency Returns](https://dx.doi.org/10.2139/ssrn.5363287)
   * Presentations: Insper Macro & Finance Workshop (2024, 2025, 2026), 32nd AEFIN Finance Forum (meeting of the Spanish Finance Association), 26th meeting of the Brazilian Finance Society (scheduled)
 * [Covariance Implied Risk Factors](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6136149)
