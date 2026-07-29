@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 ## Working papers
-* [Long-Run Interest Rate Differentials and the Profitability of Currency Carry](https://swopec.hhs.se/oruesi/abs/oruesi2025_010.htm) (with Igor F. B. Martins)
+* [Long-Run Interest Rate Differentials and the Profitability of Currency Carry](https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link) (with Igor F. B. Martins)
   * `Carry trades based on the long-run component of long-maturity yield differentials outperform and subsume traditional carry factors in explaining currency risk premia.`
   * Under review
 * [VIX Futures Term-Structure and Currency Returns](https://dx.doi.org/10.2139/ssrn.5363287)
