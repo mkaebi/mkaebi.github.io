@@ -13,7 +13,7 @@ redirect_from:
   * Under review
 * [VIX Futures Term-Structure and Currency Returns](https://dx.doi.org/10.2139/ssrn.5363287)
   * `VIX futures term-structure embed a price of risk in currency markets, consistent with an intermediary asset pricing model with volatility-hedging demand and arbitrage constraints.`
-  * Best Paper Award in Asset Pricing, Brazilian Finance Society Annual Meeting, 2026
+  * [Best Paper Award in Asset Pricing](https://sbfin.org.br/pt/evento/xxvi-encontro-brasileiro-de-financas-2026), Brazilian Finance Society Annual Meeting, 2026
   * Presentations: Insper Macro & Finance Workshop, 32nd AEFIN Finance Forum (meeting of the Spanish Finance Association), 26th meeting of the Brazilian Finance Society
 * [Covariance Implied Risk Factors](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6136149)
   * `Heteroskedasticity distorts latent factor estimation in asset pricing, and correcting for it with heteroPCA delivers economically interpretable factors and superior cross-sectional pricing performance.`
