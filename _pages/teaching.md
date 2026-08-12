@@ -1,7 +1,9 @@
 ---
 permalink: /teaching/
 title: "Teaching"
-author_profile: true
+# Matches /research/ — single column, no profile sidebar, so the two pages and
+# the home page all share one left edge.
+author_profile: false
 redirect_from: 
   - /teaching.html
 ---
