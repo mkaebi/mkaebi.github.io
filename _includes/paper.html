@@ -35,23 +35,12 @@
 <li class="paper" id="{{ p_id }}">
   <div class="paper__grid">
 
-    <figure class="paper__figure">
-      {% if p_image != "" %}
-        {% if p_image contains "://" %}{% assign img_src = p_image %}{% else %}{% assign img_src = p_image | prepend: "/images/" | prepend: base_path %}{% endif %}
-        {% comment %}
-          The title below is the primary link, so the thumbnail is taken out of
-          the tab order either way. If image_alt describes the figure, the link
-          keeps that description as its accessible name; with no alt text the
-          link would be unlabelled, so it is hidden from assistive tech instead.
-        {% endcomment %}
-        {% if p_url != "" %}<a href="{{ p_url }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
-          <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
-        {% if p_url != "" %}</a>{% endif %}
-      {% else %}
-        <div class="paper__plate" aria-hidden="true"></div>
-      {% endif %}
-    </figure>
-
+    {% comment %}
+      Body first in the source, figure second. The grid places the figure on
+      the right on wide screens; keeping this order means screen readers and
+      the single-column mobile layout both lead with the paper title rather
+      than with its illustration.
+    {% endcomment %}
     <div class="paper__body">
 
       <h3 class="paper__title">
@@ -101,5 +90,23 @@
       {% endif %}
 
     </div>
+
+    <figure class="paper__figure">
+      {% if p_image != "" %}
+        {% if p_image contains "://" %}{% assign img_src = p_image %}{% else %}{% assign img_src = p_image | prepend: "/images/" | prepend: base_path %}{% endif %}
+        {% comment %}
+          The title above is the primary link, so the figure is taken out of
+          the tab order either way. If image_alt describes the figure, the link
+          keeps that description as its accessible name; with no alt text the
+          link would be unlabelled, so it is hidden from assistive tech instead.
+        {% endcomment %}
+        {% if p_url != "" %}<a href="{{ p_url }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
+          <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
+        {% if p_url != "" %}</a>{% endif %}
+      {% else %}
+        <div class="paper__plate" aria-hidden="true"></div>
+      {% endif %}
+    </figure>
+
   </div>
 </li>

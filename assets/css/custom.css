@@ -829,9 +829,10 @@ hr {
   align-items: start;
 }
 
+/* Text column first, figure second — matching the source order. */
 @media screen and (min-width: 34em) {
   .paper__grid {
-    grid-template-columns: 12rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 15rem;
     gap: 1.75rem;
   }
 }
@@ -840,7 +841,7 @@ hr {
    a size where they can actually be read. */
 @media screen and (min-width: 62em) {
   .paper__grid {
-    grid-template-columns: 19rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 24rem;
     gap: 2.25rem;
   }
 }
@@ -880,13 +881,15 @@ hr {
   border-color: var(--rule-strong);
 }
 
-/* Fallback when no image is supplied: a numbered plate, still a real object */
+/* Fallback when no image is supplied: a numbered plate, still a real object.
+   Kept nearer 2:1 than 4:3 so it reads as a modest placeholder among the real
+   figures rather than as a large empty box now the column is wider. */
 .paper__plate {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 2 / 1;
   background: var(--paper-sunken);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
@@ -901,9 +904,12 @@ hr {
   content: counter(paper, decimal-leading-zero);
 }
 
+/* Single column: the figure sits under the paper's text, so it can be wide
+   enough to actually read rather than the narrow beside-the-text thumbnail. */
 @media screen and (max-width: 33.99em) {
   .paper__figure {
-    max-width: 7rem;
+    max-width: 22rem;
+    margin-top: 0.35rem;
   }
 }
 
