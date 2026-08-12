@@ -1,0 +1,105 @@
+{% comment %}
+  Renders one entry from _data/papers.yml.
+
+  Usage:  {% include paper.html paper=item %}
+
+  Every field is optional. Values are stripped first because YAML block
+  scalars (`>-`) yield an empty string rather than nil when left blank, and an
+  empty string is truthy in Liquid.
+{% endcomment %}
+
+{% include base_path %}
+
+{% assign p = include.paper %}
+{% assign p_title = p.title | strip %}
+{% assign p_url = p.url | strip %}
+{% assign p_authors = p.authors | strip %}
+{% assign p_summary = p.summary | strip %}
+{% assign p_abstract = p.abstract | strip %}
+{% assign p_image = p.image | strip %}
+{% assign p_alt = p.image_alt | strip %}
+{% assign p_status = p.status | strip %}
+{% assign p_award = p.award.text | strip %}
+{% assign p_award_url = p.award.url | strip %}
+{% assign p_id = p.id | strip %}
+{% if p_id == "" %}{% assign p_id = p_title | slugify %}{% endif %}
+
+{% comment %} Label the outbound link by host, so the badge is informative. {% endcomment %}
+{% assign host_label = "Read paper" %}
+{% if p_url contains "ssrn" %}{% assign host_label = "SSRN" %}
+{% elsif p_url contains "drive.google" %}{% assign host_label = "PDF" %}
+{% elsif p_url contains "arxiv" %}{% assign host_label = "arXiv" %}
+{% elsif p_url contains "doi.org" %}{% assign host_label = "DOI" %}
+{% endif %}
+
+<li class="paper" id="{{ p_id }}">
+  <div class="paper__grid">
+
+    <figure class="paper__figure">
+      {% if p_image != "" %}
+        {% if p_image contains "://" %}{% assign img_src = p_image %}{% else %}{% assign img_src = p_image | prepend: "/images/" | prepend: base_path %}{% endif %}
+        {% comment %}
+          The title below is the primary link, so the thumbnail is taken out of
+          the tab order either way. If image_alt describes the figure, the link
+          keeps that description as its accessible name; with no alt text the
+          link would be unlabelled, so it is hidden from assistive tech instead.
+        {% endcomment %}
+        {% if p_url != "" %}<a href="{{ p_url }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
+          <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
+        {% if p_url != "" %}</a>{% endif %}
+      {% else %}
+        <div class="paper__plate" aria-hidden="true"></div>
+      {% endif %}
+    </figure>
+
+    <div class="paper__body">
+
+      <h3 class="paper__title">
+        {% if p_url != "" %}<a href="{{ p_url }}">{{ p_title }}</a>{% else %}{{ p_title }}{% endif %}
+      </h3>
+
+      {% if p_authors != "" %}
+        <p class="paper__authors">{{ p_authors }}</p>
+      {% endif %}
+
+      {% if p_summary != "" %}
+        <p class="paper__summary">{{ p_summary }}</p>
+      {% endif %}
+
+      {% if p_award != "" or p_status != "" or p_url != "" %}
+        <ul class="paper__badges">
+          {% if p_award != "" %}
+            <li>
+              {% if p_award_url != "" %}
+                <a class="badge badge--award" href="{{ p_award_url }}">{{ p_award }}</a>
+              {% else %}
+                <span class="badge badge--award">{{ p_award }}</span>
+              {% endif %}
+            </li>
+          {% endif %}
+          {% if p_status != "" %}
+            <li><span class="badge badge--status">{{ p_status }}</span></li>
+          {% endif %}
+          {% if p_url != "" %}
+            <li><a class="badge" href="{{ p_url }}">{{ host_label }}</a></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+
+      {% if p_abstract != "" %}
+        <details class="paper__abstract">
+          <summary>Abstract</summary>
+          <div class="paper__abstract-body">{{ p_abstract | markdownify }}</div>
+        </details>
+      {% endif %}
+
+      {% if p.presentations and p.presentations.size > 0 %}
+        <dl class="paper__presentations">
+          <dt>Presented at</dt>
+          <dd>{{ p.presentations | join: " · " }}</dd>
+        </dl>
+      {% endif %}
+
+    </div>
+  </div>
+</li>

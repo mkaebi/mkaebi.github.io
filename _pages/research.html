@@ -1,0 +1,30 @@
+---
+permalink: /research/
+title: "Research"
+author_profile: true
+redirect_from:
+  - /research.html
+---
+
+{% assign working = site.data.papers.working %}
+{% assign wip = site.data.papers.in_progress %}
+
+{% if working and working.size > 0 %}
+  <h2>Working papers</h2>
+  <ul class="papers">
+    {% for item in working %}
+      {% include paper.html paper=item %}
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if wip and wip.size > 0 %}
+  <h2>Work in progress</h2>
+  <ul class="wip">
+    {% for item in wip %}
+      <li>
+        {{ item.title }}{% if item.authors %} <span class="wip__authors">{{ item.authors }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -21,8 +21,15 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png?v=M44lzPylqQ">
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fbfaf7">
+<meta name="theme-color" content="#131317" media="(prefers-color-scheme: dark)">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+
+<!-- Editorial theme layer. Loaded last so it overrides the compiled theme CSS.
+     Remove this block (and assets/css/custom.css) to fall back to stock AcademicPages. -->
+<link rel="preload" as="font" type="font/woff2" href="{{ base_path }}/assets/fonts/newsreader-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ base_path }}/assets/fonts/inter-latin.woff2" crossorigin>
+<link rel="stylesheet" href="{{ base_path }}/assets/css/custom.css"/>
 
 
 <!-- Support for MatJax -->
