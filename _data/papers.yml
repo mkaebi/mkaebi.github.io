@@ -37,9 +37,25 @@ working:
       demand and arbitrage constraints.
     # Paste the SSRN abstract between the quotes below.
     abstract: >-
+      I use the VIX futures term-structure to build novel currency risk factors and 
+      show that they are priced in the cross-section of currency returns and carry 
+      incremental predictive information for future returns. Currencies with greater 
+      exposure to the level and curvature factors earn a lower risk premium, acting 
+      as insurance, while those more exposed to the slope factor earn a higher premium. 
+      A portfolio that is long high-exposure currencies and short low-exposure currencies 
+      captures this risk-return dispersion, and its excess return can be understood as 
+      compensation for bearing a globally priced volatility shock. Decomposing the factor 
+      returns into news about expected future volatility and news about the variance-risk 
+      premium, I find that the risk premia are driven almost entirely by variance-risk-premium 
+      news, while expected-volatility news carries no price of risk. A Bayesian factor-selection 
+      procedure confirms that the term-structure factors enter the stochastic discount factor with 
+      high posterior probability. I rationalize these results with a two-agent preferred-habitat 
+      model in which experts have horizon-specific volatility hedging demands and arbitrageurs 
+      face funding and margin costs.
 
-    image:
-    image_alt:
+
+    image: "papers/vix-term-structure.png"
+    image_alt: "Currencies sorted into quintile portfolios by their exposure to the first three principal components of the VIX futures term structure, 2010-2025"
     award:
       text: "Best Paper Award in Asset Pricing — Brazilian Finance Society, 2026"
       url: "https://sbfin.org.br/pt/evento/xxvi-encontro-brasileiro-de-financas-2026"
@@ -58,9 +74,9 @@ working:
       differentials outperform and subsume traditional carry factors in
       explaining currency risk premia.
     abstract: >-
-
-    image:
-    image_alt:
+      This paper examines the role of long-run and cyclical components of interest rate differentials in explaining the returns to currency carry strategies. We decompose long-term nominal interest rate differentials into trend and cycle components and show that the resulting signals are largely orthogonal to the traditional short-term carry signal. A simple strategy that goes long currencies above the median long-run differential and shorts those below delivers a statistically and economically significant annualized excess return of 2.97%. Relative to both traditional and static carry, our strategy achieves a higher Sharpe ratio before and after transaction costs, higher Sortino and Omega ratios, less negative skewness and lower excess kurtosis. We introduce a new tradable carry factor that earns a positive and significant risk premium across distinct cross-sections of currency returns and subsumes the pricing information of existing carry benchmarks, while retaining independent variation that neither can explain.
+    image: "papers/carry-star.png"
+    image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
     status: "Under review"
 
   - title: "Covariance Implied Risk Factors"
@@ -72,9 +88,10 @@ working:
       correcting for it with heteroPCA delivers economically interpretable
       factors and superior cross-sectional pricing performance.
     abstract: >-
+      This paper examines the role of heteroskedasticity in extracting latent risk factors from asset returns. I show that standard principal component analysis suffers from distortions when assets exhibit heterogeneous idiosyncratic variances, leading factors to reflect clusters of idiosyncratic risk rather than true systematic risk. Building on recent developments in the statistics literature, I apply heteroskedastic PCA (heteroPCA) to correct for this bias by iteratively replacing the diagonal of the sample covariance matrix with estimates implied by the off-diagonal structure. The correction is purely statistical: it requires no characteristics, instruments, or auxiliary data beyond the return panel itself. This approach delivers superior out-of-sample cross-sectional pricing performance compared to standard PCA, with higher Sharpe ratios and lower average pricing errors across multiple equity and FX portfolios. The identified factors exhibit clear economic interpretability, and the implied stochastic discount factor achieves lower Hansen-Jagannathan distances. These results highlight that accounting for heteroskedasticity in idiosyncratic variance substantially improves factor estimation in asset pricing applications, across asset classes and at no additional data cost.
 
-    image:
-    image_alt:
+    image: "papers/heteropca.png"
+    image_alt: "Stochastic discount factor weights on accrual-by-size portfolios under standard PCA versus heteroPCA"
     presentations:
       - "Insper Macro & Finance Workshop"
       - "FinanceHub 2026"
@@ -91,7 +108,7 @@ working:
       return predictability and portfolio performance in the Brazilian equity
       market.
     abstract: >-
-
+      We investigate the impact of firm characteristics on stock returns in the Brazilian financial market, considering a long list of characteristics found be relevant in the U.S. market. Employing Fama-MacBeth regressions, alongside machine learning techniques, we examine over 24 firm-level characteristics. Our findings highlight the stronger influence of price-related metrics, such as past return, liquidity, size and volatility, over accounting variables. We also explore the robustness of these characteristics through the construction of various portfolios, revealing significant alphas in multiple portfolio construction methods and substantial out-of-sample performance.
     image:
     image_alt:
     presentations:

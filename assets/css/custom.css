@@ -840,7 +840,7 @@ hr {
 
 @media screen and (min-width: 34em) {
   .paper__grid {
-    grid-template-columns: 8.5rem minmax(0, 1fr);
+    grid-template-columns: 10rem minmax(0, 1fr);
     gap: 1.75rem;
   }
 }
@@ -860,16 +860,21 @@ hr {
   display: block;
 }
 
+/* These are research figures, not photographs, and their aspect ratios run
+   from roughly 4:3 to 3:1. `contain` letterboxes rather than cropping, so a
+   wide chart is never reduced to its blank middle. The white ground matches
+   the figures' own background so the letterboxing reads as a plate. */
 .paper .paper__thumb {
   display: block;
   width: 100%;
   margin-bottom: 0;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background-color: var(--paper-sunken);
+  object-fit: contain;
+  background-color: #fff;
+  padding: 0.3rem;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  transition: border-color 0.25s var(--ease);
 }
 
 .paper:hover .paper__thumb {
