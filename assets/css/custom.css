@@ -1078,6 +1078,22 @@ a.badge:hover {
   max-width: 66ch;
   padding: 0.55rem 0 0.35rem;
   animation: abstract-in 0.28s var(--ease) both;
+
+  /* Justified, as in the papers themselves. Hyphenation is not optional here:
+     without it, justifying a measure this narrow opens rivers of white space
+     between words. Relies on the lang="en" already set on <html>. */
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hanging-punctuation: first last;
+}
+
+/* Justification is for prose. A URL or a long unbroken token would still be
+   stretched across the line, so keep those from being torn apart. */
+.paper .paper__abstract-body a,
+.paper .paper__abstract-body code {
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 
 .paper .paper__abstract-body p {
