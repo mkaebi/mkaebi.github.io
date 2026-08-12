@@ -3,7 +3,8 @@ layout: default
 ---
 
 {% comment %}
-  Landing page: an editorial hero instead of the stock sidebar + "About" title.
+  Landing page: an editorial hero instead of the stock sidebar + "About" title,
+  followed by the page's own prose. Papers live on /research/ only.
 
   Everything is driven by `author:` in _config.yml plus an optional `hero:`
   block in the page front matter:
@@ -93,21 +94,5 @@ layout: default
       </section>
     </div>
   </article>
-
-  {% comment %} Featured papers, straight from _data/papers.yml {% endcomment %}
-  {% assign featured = site.data.papers.working | where: "featured", true %}
-  {% if featured and featured.size > 0 %}
-    <section class="home-research">
-      <h2 class="section-label">
-        Selected research
-        <a href="{{ base_path }}/research/">All papers &rarr;</a>
-      </h2>
-      <ul class="papers">
-        {% for item in featured %}
-          {% include paper.html paper=item %}
-        {% endfor %}
-      </ul>
-    </section>
-  {% endif %}
 
 </div>

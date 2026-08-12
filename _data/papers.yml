@@ -1,9 +1,9 @@
 # ============================================================================
 # Research papers
 # ----------------------------------------------------------------------------
-# Rendered by _includes/paper.html on /research/ (and the featured ones on the
-# home page). Every field except `title` is optional — anything you leave out
-# is simply not rendered, so a half-filled entry still looks finished.
+# Rendered by _includes/paper.html on /research/. Every field except `title`
+# is optional — anything you leave out is simply not rendered, so a half-filled
+# entry still looks finished.
 #
 #   title          Paper title.
 #   id             Anchor slug. Gives each paper a permalink such as
@@ -15,27 +15,27 @@
 #   abstract       Full abstract. Shown in a collapsible "Abstract" dropdown.
 #                  Use the >- block below so you can paste multiple paragraphs
 #                  (blank line between them). If empty, no dropdown appears.
-#   image          Thumbnail, relative to /images/. e.g. "papers/vix.png".
+#   image          Figure, relative to /images/. e.g. "papers/vix.png".
+#                  Shown at its own aspect ratio, so no crop to plan around.
+#                  Aim for about 720px wide; it displays at ~300px.
 #                  If empty, a numbered plate is drawn instead — so the page
 #                  looks deliberate whether or not you have artwork yet.
-#                  Best results: a roughly 4:3 crop, at least 480x360.
 #   image_alt      Describe the figure for screen readers and search engines.
 #   status         Short state, e.g. "Under review", "R&R at ...".
 #   award          text: ...   and optionally   url: ...
 #   presentations  List of venues.
-#   featured       true to also surface it on the home page.
+#
+# Order here is the order on the page.
 # ============================================================================
 
 working:
   - title: "VIX Futures Term-Structure and Currency Returns"
     id: vix-futures-term-structure-and-currency-returns
     url: "https://dx.doi.org/10.2139/ssrn.5363287"
-    featured: true
     summary: >-
       VIX futures term-structure embed a price of risk in currency markets,
       consistent with an intermediary asset pricing model with volatility-hedging
       demand and arbitrage constraints.
-    # Paste the SSRN abstract between the quotes below.
     abstract: >-
       I use the VIX futures term-structure to build novel currency risk factors and 
       show that they are priced in the cross-section of currency returns and carry 
@@ -68,7 +68,6 @@ working:
     id: long-run-interest-rate-differentials
     url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
     authors: "with Igor F. B. Martins"
-    featured: true
     summary: >-
       Carry trades based on the long-run component of long-maturity yield
       differentials outperform and subsume traditional carry factors in
@@ -82,7 +81,6 @@ working:
   - title: "Covariance Implied Risk Factors"
     id: covariance-implied-risk-factors
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6136149"
-    featured: true
     summary: >-
       Heteroskedasticity distorts latent factor estimation in asset pricing, and
       correcting for it with heteroPCA delivers economically interpretable
