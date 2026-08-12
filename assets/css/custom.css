@@ -915,8 +915,19 @@ hr {
 
 /* --- body ---------------------------------------------------------------- */
 
+/* min-width:0 lets this grid track shrink below its content's intrinsic width;
+   without it a long unbroken string would widen the whole row. The wrap rules
+   are the belt to that braces. */
 .paper__body {
   min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.paper .paper__title,
+.paper .paper__authors,
+.paper .paper__summary,
+.paper .paper__presentations dd {
+  overflow-wrap: break-word;
 }
 
 .paper .paper__title {
@@ -996,7 +1007,13 @@ hr {
   border-radius: 999px;
   padding: 0.24rem 0.65rem;
   background-image: none;
-  white-space: nowrap;
+
+  /* Must wrap. `nowrap` is fine for "SSRN" but the award badge is a full
+     sentence, and on a phone an unbreakable 66-character pill widens the whole
+     page and forces horizontal scrolling. */
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 a.badge:hover {
@@ -1005,11 +1022,21 @@ a.badge:hover {
   background-color: var(--accent-wash);
 }
 
+/* The other badges are one-word labels; this one is a sentence. Setting it in
+   sentence case rather than tracked-out caps makes it roughly a third
+   narrower and much easier to read, and correctly distinguishes content from
+   a label. */
 .badge--award {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 42%, transparent);
   background-color: var(--accent-wash);
   font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  font-size: 0.73rem;
+  border-radius: var(--radius);
+  padding: 0.3rem 0.7rem;
+  align-items: baseline;
 }
 
 .badge--status {
@@ -1081,11 +1108,13 @@ a.badge:hover {
 
   /* Justified, as in the papers themselves. Hyphenation is not optional here:
      without it, justifying a measure this narrow opens rivers of white space
-     between words. Relies on the lang="en" already set on <html>. */
+     between words. Relies on the lang="en" already set on <html>.
+     No hanging-punctuation: its `last` value pushes trailing punctuation
+     outside the content box, which is a horizontal-overflow risk on phones. */
   text-align: justify;
   -webkit-hyphens: auto;
   hyphens: auto;
-  hanging-punctuation: first last;
+  overflow-wrap: break-word;
 }
 
 /* Justification is for prose. A URL or a long unbroken token would still be
