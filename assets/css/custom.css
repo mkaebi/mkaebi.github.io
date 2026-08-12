@@ -1,0 +1,1311 @@
+/* ==========================================================================
+   Editorial theme layer
+   --------------------------------------------------------------------------
+   Plain CSS, loaded AFTER the compiled Minimal Mistakes stylesheet
+   (see _includes/head/custom.html). Nothing here needs a Sass build, and
+   deleting the one <link> tag restores the stock theme exactly.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Fonts (self-hosted, no third-party requests)
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/newsreader-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/newsreader-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/newsreader-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/newsreader-italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  --serif: "Newsreader", ui-serif, "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas,
+    monospace;
+
+  --paper: #fbfaf7;
+  --paper-raised: #ffffff;
+  --paper-sunken: #f4f1ea;
+  --ink: #17171b;
+  --ink-soft: #3d4048;
+  --ink-muted: #6b7080;
+  --rule: #e3ded4;
+  --rule-strong: #cfc7b8;
+
+  --accent: #8c2f3a;
+  --accent-deep: #6d232d;
+  --accent-wash: rgba(140, 47, 58, 0.07);
+
+  --measure: 68ch;
+  --radius: 3px;
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --masthead-h: 3.6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131317;
+    --paper-raised: #1a1a20;
+    --paper-sunken: #101014;
+    --ink: #eceae4;
+    --ink-soft: #c7c4bc;
+    --ink-muted: #949289;
+    --rule: #2c2c34;
+    --rule-strong: #3d3d47;
+
+    --accent: #d98d97;
+    --accent-deep: #eab3ba;
+    --accent-wash: rgba(217, 141, 151, 0.1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Base typography — override the theme's sans-serif defaults
+   -------------------------------------------------------------------------- */
+
+html {
+  background-color: var(--paper);
+}
+
+/* The stock theme pads the body by a hard-coded 70px to clear its fixed
+   masthead, and pins the footer with `position:absolute; bottom:0` — a hack
+   that misplaces the footer on short pages. Replace both with a flex column. */
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--masthead-h);
+  padding-bottom: 0;
+}
+
+#main {
+  flex: 1 0 auto;
+}
+
+.page__footer {
+  position: static;
+  float: none;
+  margin-top: auto;
+  flex: none;
+}
+
+/* The theme animates #main in from opacity 0; keep it, but make it calmer. */
+#main {
+  animation-duration: 0.45s;
+  animation-delay: 0.05s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page__title,
+.archive__item-title,
+.author__name {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+
+p,
+li,
+dl,
+.page__content p,
+.page__content li,
+.page__content dl {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.72;
+}
+
+.page__content p {
+  max-width: var(--measure);
+  margin: 0 0 1.15em;
+}
+
+strong,
+b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--mono);
+}
+
+/* Links: a hairline underline that thickens on hover, rather than a colour swap */
+a,
+.page__content a {
+  color: var(--accent);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 0.05em;
+  transition: background-size 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+a:hover,
+.page__content a:hover {
+  color: var(--accent-deep);
+  background-size: 100% 2px;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout — replace the Susy float grid with CSS grid
+   -------------------------------------------------------------------------- */
+
+#main {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  margin-top: 3rem;
+}
+
+#main::after {
+  content: none;
+}
+
+@media screen and (min-width: 64em) {
+  #main {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: 4rem;
+    align-items: start;
+    margin-top: 4.5rem;
+  }
+
+  /* Undo the theme's float/width/margin maths so grid can take over. */
+  .page,
+  .archive,
+  .sidebar {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    clear: none !important;
+  }
+
+  .sidebar {
+    position: sticky !important;
+    top: calc(var(--masthead-h) + 2rem);
+    height: auto !important;
+    max-height: calc(100vh - var(--masthead-h) - 4rem);
+    overflow-y: auto;
+    padding-top: 0 !important;
+    opacity: 1;
+  }
+
+  /* Pages that opt out of the profile sidebar get a single wide column.
+     The explicit class is what the home layout uses; the :has() rule is a
+     progressive bonus for any other page rendered without a sidebar. */
+  #main.main--full,
+  #main:not(:has(.sidebar)) {
+    display: block;
+    max-width: 64rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Masthead
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  /* Stays `fixed` (as the theme has it) so it matches the body padding above. */
+  background-color: var(--paper);
+  background-color: color-mix(in srgb, var(--paper) 85%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--rule);
+  height: auto;
+  min-height: var(--masthead-h);
+  z-index: 50;
+}
+
+.masthead__inner-wrap {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding: 0;
+  min-height: var(--masthead-h);
+  display: flex;
+  align-items: center;
+  padding-inline: 1.5rem;
+}
+
+.masthead__inner-wrap::after {
+  content: none;
+}
+
+.masthead__menu {
+  width: 100%;
+}
+
+.greedy-nav {
+  background: transparent;
+  min-height: auto;
+  align-items: center;
+}
+
+.greedy-nav a {
+  background-image: none;
+  padding-bottom: 0;
+}
+
+/* Site name — the editorial nameplate */
+.greedy-nav .masthead__menu-item--lg a {
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.015em;
+}
+
+.greedy-nav .masthead__menu-item--lg a:hover {
+  color: var(--accent);
+}
+
+/* Section links — small, tracked-out sans, with a rule that grows on hover */
+.greedy-nav .visible-links .masthead__menu-item:not(.masthead__menu-item--lg) a,
+.greedy-nav .hidden-links a {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  position: relative;
+}
+
+.greedy-nav .visible-links a::before {
+  height: 1px;
+  background: var(--accent);
+  bottom: -0.35rem;
+}
+
+.greedy-nav
+  .visible-links
+  .masthead__menu-item:not(.masthead__menu-item--lg)
+  a:hover {
+  color: var(--accent);
+}
+
+.greedy-nav .visible-links a:hover::before {
+  width: 100%;
+}
+
+.greedy-nav button {
+  background: transparent;
+}
+
+.greedy-nav .navicon,
+.greedy-nav .navicon::before,
+.greedy-nav .navicon::after {
+  background: var(--ink);
+  height: 2px;
+}
+
+.greedy-nav .hidden-links {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.greedy-nav .hidden-links::before {
+  border-bottom-color: var(--rule);
+}
+
+.greedy-nav .hidden-links::after {
+  border-bottom-color: var(--paper-raised);
+}
+
+/* --------------------------------------------------------------------------
+   6. Page header and content
+   -------------------------------------------------------------------------- */
+
+.page__title {
+  font-size: clamp(2rem, 1.5rem + 1.9vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin-bottom: 0.5rem;
+}
+
+/* Hairline rule under the page title, in the accent */
+.page article.page > .page__inner-wrap > header,
+.page .page__inner-wrap > header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.page .page__inner-wrap > header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 3.5rem;
+  height: 2px;
+  background: var(--accent);
+}
+
+.page__content {
+  font-size: 1rem;
+}
+
+.page__content h2 {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin: 3.25rem 0 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* The rule runs on from the label to the right edge */
+.page__content h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.page__content h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 2.25rem 0 0.75rem;
+}
+
+.page__content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.page__content ul,
+.page__content ol {
+  max-width: var(--measure);
+}
+
+.page__content blockquote {
+  border-left: 2px solid var(--accent);
+  color: var(--ink-muted);
+  font-style: italic;
+  padding-left: 1.25rem;
+  margin-left: 0;
+}
+
+.page__meta,
+.page__date {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Sidebar author card
+   -------------------------------------------------------------------------- */
+
+.sidebar {
+  font-family: var(--sans);
+}
+
+@media screen and (min-width: 64em) {
+  .sidebar {
+    padding-right: 1.5rem !important;
+    border-right: 1px solid var(--rule);
+  }
+}
+
+.author__avatar img {
+  border-radius: 2px;
+  border: none !important;
+  padding: 0 !important;
+  max-width: 100%;
+}
+
+.sidebar .author__name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.author__bio {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin-bottom: 1.1rem !important;
+}
+
+.author__urls-wrapper {
+  font-family: var(--sans);
+}
+
+.author__urls {
+  border-color: var(--rule);
+  background: var(--paper-raised);
+}
+
+.author__urls li {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  padding: 0.22rem 0;
+  white-space: normal;
+}
+
+.author__urls a {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background-image: none;
+  padding-bottom: 0;
+}
+
+.author__urls a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.author__urls .icon-pad-right,
+.author__urls .fa,
+.author__urls .fab,
+.author__urls .fas,
+.author__urls .ai {
+  color: var(--ink-muted);
+  width: 1.1rem;
+  margin-right: 0.15rem;
+}
+
+.author__urls-wrapper button.btn--inverse {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   8. Home hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  margin-bottom: 3.5rem;
+}
+
+.hero__grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 48em) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: 3.5rem;
+  }
+}
+
+.hero__eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+
+.hero__name {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+
+.hero__lede {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin: 0 0 1.75rem;
+}
+
+.hero__lede em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.hero__meta {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.hero__meta li {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  line-height: 1.4;
+}
+
+.hero__meta i {
+  color: var(--accent);
+  font-size: 0.85em;
+}
+
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero__links li {
+  margin: 0;
+}
+
+.hero__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  background-image: none;
+  transition: border-color 0.18s var(--ease), color 0.18s var(--ease),
+    background-color 0.18s var(--ease);
+}
+
+.hero__links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--accent-wash);
+}
+
+/* Also a <figure>, so the theme's flex/space-between rules must be undone —
+   otherwise the caption sits beside the portrait instead of under it. */
+.hero__portrait {
+  display: block;
+  margin: 0;
+  position: relative;
+}
+
+.hero__portrait img {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  border-radius: 2px;
+}
+
+/* A thin accent frame offset behind the portrait */
+.hero__portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0.7rem -0.7rem -0.7rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0.55;
+}
+
+.hero__portrait figcaption {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-top: 1.15rem;
+  text-align: right;
+}
+
+@media screen and (max-width: 47.99em) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__portrait {
+    max-width: 11rem;
+    order: -1;
+  }
+  .hero__portrait figcaption {
+    text-align: left;
+  }
+}
+
+/* Section label used outside .page__content (home page sections) */
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.section-label a {
+  background-image: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   9. Paper list
+
+   NOTE ON SPECIFICITY: on /research/ these components sit inside
+   .page__content, whose prose rules are element-qualified (`.page__content p`,
+   `... h3`, `... ul`, `... dl` = 0,1,1) and therefore out-specify a plain
+   single-class selector (0,1,0). On the home page the same components sit
+   outside .page__content, so the fix cannot simply be to prefix them with it.
+   Doubling the class (`.papers.papers`) or qualifying by ancestor
+   (`.paper .paper__title`) lifts them to 0,2,0 and works in both places.
+   -------------------------------------------------------------------------- */
+
+.papers.papers {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  max-width: none;
+  counter-reset: paper;
+}
+
+.paper.paper {
+  counter-increment: paper;
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+  font-size: inherit;
+}
+
+.papers > .paper:first-child {
+  border-top: none;
+  padding-top: 0.35rem;
+}
+
+.paper__grid {
+  display: grid;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 34em) {
+  .paper__grid {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* --- thumbnail ----------------------------------------------------------- */
+
+/* The theme sets `figure { display:flex; flex-wrap:wrap; justify-content:
+   space-between; margin:2em 0 }` and `figure img { margin-bottom:1em }`.
+   Neutralise all of that — this figure is a plain thumbnail slot. */
+.paper__figure {
+  display: block;
+  margin: 0;
+  position: relative;
+}
+
+.paper__figure > a {
+  display: block;
+}
+
+.paper .paper__thumb {
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--paper-sunken);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.paper:hover .paper__thumb {
+  border-color: var(--rule-strong);
+}
+
+/* Fallback when no image is supplied: a numbered plate, still a real object */
+.paper__plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-sunken);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--rule-strong);
+  letter-spacing: 0.02em;
+}
+
+.paper__plate::before {
+  content: counter(paper, decimal-leading-zero);
+}
+
+@media screen and (max-width: 33.99em) {
+  .paper__figure {
+    max-width: 7rem;
+  }
+}
+
+/* --- body ---------------------------------------------------------------- */
+
+.paper__body {
+  min-width: 0;
+}
+
+.paper .paper__title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.012em;
+  margin: 0 0 0.4rem;
+}
+
+.paper .paper__title a {
+  color: var(--ink);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.paper .paper__title a:hover {
+  color: var(--accent);
+  background-size: 100% 1px;
+}
+
+.paper .paper__authors {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin: 0 0 0.7rem;
+  max-width: none;
+}
+
+/* One-line plain-language summary — the old `code` formatting, made readable */
+.paper .paper__summary {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+  padding-left: 0.95rem;
+  border-left: 2px solid var(--rule-strong);
+  border-left-color: color-mix(in srgb, var(--accent) 32%, transparent);
+  max-width: 62ch;
+}
+
+/* --- badges -------------------------------------------------------------- */
+
+.paper .paper__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  max-width: none;
+}
+
+.paper .paper__badges li {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.24rem 0.65rem;
+  background-image: none;
+  white-space: nowrap;
+}
+
+a.badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--accent-wash);
+}
+
+.badge--award {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
+  background-color: var(--accent-wash);
+  font-weight: 600;
+}
+
+.badge--status {
+  color: var(--ink-soft);
+  border-style: dashed;
+}
+
+/* --- collapsible abstract ------------------------------------------------ */
+
+.paper__abstract {
+  margin: 0.9rem 0 0;
+  border-top: 1px dotted var(--rule-strong);
+  padding-top: 0.7rem;
+}
+
+.paper__abstract > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 0.15rem 0;
+  transition: color 0.18s var(--ease);
+  width: fit-content;
+}
+
+.paper__abstract > summary::-webkit-details-marker {
+  display: none;
+}
+
+.paper__abstract > summary::marker {
+  content: "";
+}
+
+/* Chevron drawn in CSS so there is no icon-font dependency */
+.paper__abstract > summary::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg) translate(-0.06rem, -0.06rem);
+  transition: transform 0.22s var(--ease);
+  flex: none;
+}
+
+.paper__abstract[open] > summary::before {
+  transform: rotate(45deg) translate(-0.04rem, -0.04rem);
+}
+
+.paper__abstract > summary:hover {
+  color: var(--accent);
+}
+
+.paper__abstract-body {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 66ch;
+  padding: 0.55rem 0 0.35rem;
+  animation: abstract-in 0.28s var(--ease) both;
+}
+
+.paper .paper__abstract-body p {
+  margin: 0 0 0.85em;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: none;
+}
+
+.paper .paper__abstract-body p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes abstract-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.3rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- presentations ------------------------------------------------------- */
+
+.paper .paper__presentations {
+  margin: 0.7rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 70ch;
+}
+
+.paper .paper__presentations dt {
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.3rem;
+}
+
+.paper .paper__presentations dd {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+/* Work-in-progress list */
+.wip.wip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.wip.wip li {
+  font-family: var(--serif);
+  font-size: 1.075rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  padding: 0.55rem 0 0.55rem 1.5rem;
+  position: relative;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.wip.wip li:last-child {
+  border-bottom: none;
+}
+
+.wip.wip li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.35em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.wip__authors {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Teaching list
+   -------------------------------------------------------------------------- */
+
+.teaching-list.teaching-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.teaching-list.teaching-list > li {
+  font-family: var(--serif);
+  font-size: 1.075rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.teaching-list.teaching-list > li:last-child {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer
+   -------------------------------------------------------------------------- */
+
+.page__footer {
+  background: transparent;
+  border-top: 1px solid var(--rule);
+  margin-top: 5rem;
+  color: var(--ink-muted);
+}
+
+.page__footer footer {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding: 2.25rem 1.5rem 3rem;
+}
+
+.page__footer a {
+  color: var(--ink-muted);
+  background-image: none;
+}
+
+.page__footer a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.page__footer-follow ul {
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.page__footer-follow li {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  padding-right: 1.1rem;
+}
+
+.page__footer-follow li strong {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.page__footer-copyright {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   12. Misc theme surfaces kept consistent in dark mode
+   -------------------------------------------------------------------------- */
+
+.page__content code,
+.page__content pre,
+figure pre,
+.highlight {
+  background-color: var(--paper-sunken);
+  color: var(--ink-soft);
+  border-radius: var(--radius);
+}
+
+.page__content table {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+
+.page__content th,
+.page__content td {
+  border-color: var(--rule);
+}
+
+.page__content th {
+  background-color: var(--paper-sunken);
+  color: var(--ink);
+}
+
+.notice,
+.notice--info,
+.notice--warning,
+.notice--danger,
+.notice--success {
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   13. Print
+   -------------------------------------------------------------------------- */
+
+@media print {
+  .masthead,
+  .sidebar,
+  .page__footer-follow {
+    display: none !important;
+  }
+
+  #main {
+    display: block;
+    margin-top: 0;
+  }
+
+  /* Abstracts are force-opened before printing by assets/js/custom.js,
+     because a collapsed <details> cannot be expanded from CSS alone. */
+  .paper__abstract-body {
+    animation: none;
+  }
+
+  .paper__abstract > summary {
+    display: none;
+  }
+
+  .paper {
+    break-inside: avoid;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #555;
+    word-break: break-all;
+  }
+}

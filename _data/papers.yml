@@ -1,0 +1,104 @@
+# ============================================================================
+# Research papers
+# ----------------------------------------------------------------------------
+# Rendered by _includes/paper.html on /research/ (and the featured ones on the
+# home page). Every field except `title` is optional — anything you leave out
+# is simply not rendered, so a half-filled entry still looks finished.
+#
+#   title          Paper title.
+#   id             Anchor slug. Gives each paper a permalink such as
+#                  /research/#covariance-implied-risk-factors, which opens the
+#                  abstract automatically. Keep it stable once shared.
+#   url            Link on the title. Omit for an unlinked (unposted) paper.
+#   authors        Co-authors, e.g. "with Igor F. B. Martins". Omit if solo.
+#   summary        One-line plain-language takeaway. Shown always.
+#   abstract       Full abstract. Shown in a collapsible "Abstract" dropdown.
+#                  Use the >- block below so you can paste multiple paragraphs
+#                  (blank line between them). If empty, no dropdown appears.
+#   image          Thumbnail, relative to /images/. e.g. "papers/vix.png".
+#                  If empty, a numbered plate is drawn instead — so the page
+#                  looks deliberate whether or not you have artwork yet.
+#                  Best results: a roughly 4:3 crop, at least 480x360.
+#   image_alt      Describe the figure for screen readers and search engines.
+#   status         Short state, e.g. "Under review", "R&R at ...".
+#   award          text: ...   and optionally   url: ...
+#   presentations  List of venues.
+#   featured       true to also surface it on the home page.
+# ============================================================================
+
+working:
+  - title: "VIX Futures Term-Structure and Currency Returns"
+    id: vix-futures-term-structure-and-currency-returns
+    url: "https://dx.doi.org/10.2139/ssrn.5363287"
+    featured: true
+    summary: >-
+      VIX futures term-structure embed a price of risk in currency markets,
+      consistent with an intermediary asset pricing model with volatility-hedging
+      demand and arbitrage constraints.
+    # Paste the SSRN abstract between the quotes below.
+    abstract: >-
+
+    image:
+    image_alt:
+    award:
+      text: "Best Paper Award in Asset Pricing — Brazilian Finance Society, 2026"
+      url: "https://sbfin.org.br/pt/evento/xxvi-encontro-brasileiro-de-financas-2026"
+    presentations:
+      - "Insper Macro & Finance Workshop"
+      - "32nd AEFIN Finance Forum (Spanish Finance Association)"
+      - "26th Meeting of the Brazilian Finance Society"
+
+  - title: "Long-Run Interest Rate Differentials and the Profitability of Currency Carry"
+    id: long-run-interest-rate-differentials
+    url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
+    authors: "with Igor F. B. Martins"
+    featured: true
+    summary: >-
+      Carry trades based on the long-run component of long-maturity yield
+      differentials outperform and subsume traditional carry factors in
+      explaining currency risk premia.
+    abstract: >-
+
+    image:
+    image_alt:
+    status: "Under review"
+
+  - title: "Covariance Implied Risk Factors"
+    id: covariance-implied-risk-factors
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6136149"
+    featured: true
+    summary: >-
+      Heteroskedasticity distorts latent factor estimation in asset pricing, and
+      correcting for it with heteroPCA delivers economically interpretable
+      factors and superior cross-sectional pricing performance.
+    abstract: >-
+
+    image:
+    image_alt:
+    presentations:
+      - "Insper Macro & Finance Workshop"
+      - "FinanceHub 2026"
+      - "33rd AEFIN Finance Forum (Spanish Finance Association)"
+      - "26th Meeting of the Brazilian Finance Society"
+      - "10th Vietnam International Conference in Finance (accepted, VICIF 2026)"
+
+  - title: "Firm Characteristics and Stock Returns in Brazil"
+    id: firm-characteristics-and-stock-returns-in-brazil
+    url: "https://dx.doi.org/10.2139/ssrn.4801117"
+    authors: "with Ruy M. Ribeiro, Josué P. A. Costa, Tomas Nóbrega and Igor F. B. Martins"
+    summary: >-
+      Price-related characteristics, rather than accounting fundamentals, drive
+      return predictability and portfolio performance in the Brazilian equity
+      market.
+    abstract: >-
+
+    image:
+    image_alt:
+    presentations:
+      - "24th Meeting of the Brazilian Finance Society"
+      - "LatAm EQDerivatives (2024)"
+      - "Insper Macro & Finance Workshop"
+
+in_progress:
+  - title: "Commodity Risk in Financial Markets"
+    authors: "with Josué P. A. Costa"

@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"   # 660px JPEG, 67 KB. profile.png is the untouched 961 KB original.
   name             : "Mohammed Mehdi Kaebi"
   pronouns         : # example: "she/her"  
   bio              : "PhD Candidate in Finance"
