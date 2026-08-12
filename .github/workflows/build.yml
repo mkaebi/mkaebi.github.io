@@ -1,0 +1,46 @@
+# Builds the site on every push and pull request.
+#
+# GitHub Pages builds the default branch only, and reports failures by email
+# after the fact — so without this, a broken Liquid tag or malformed YAML is
+# only discovered once it is already live. This runs the same github-pages
+# gem bundle that Pages itself uses, and fails the check instead.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  jekyll:
+    name: Jekyll build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build
+        # JEKYLL_ENV=production so the compress_html layout runs here too,
+        # matching what Pages actually publishes.
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --trace
+
+      - name: Confirm the key pages were generated
+        run: |
+          set -e
+          for page in _site/index.html _site/research/index.html _site/teaching/index.html; do
+            test -s "$page" || { echo "::error::missing or empty: $page"; exit 1; }
+          done
+          echo "Generated pages:"
+          find _site -name '*.html' | sort | head -30
