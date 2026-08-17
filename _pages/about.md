@@ -1,7 +1,9 @@
 ---
 layout: home
 permalink: /
-title: "About"
+title: "Mohammed Mehdi Kaebi"
+seo_title: "Mohammed Mehdi Kaebi, PhD Candidate in Finance at Insper"
+description: "Mohammed Mehdi Kaebi is a PhD candidate in Finance at Insper, São Paulo. His research covers empirical asset pricing and international finance."
 author_profile: false
 hero:
   eyebrow: "PhD Candidate in Finance"
@@ -13,7 +15,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD candidate in Finance at Insper, in Brazil, and I hold a Bachelor’s degree in Economics from Insper.
+I am Mohammed Mehdi Kaebi, a PhD candidate in Finance at Insper, in Brazil, and I hold a Bachelor’s degree in Economics from Insper.
 
 I was a visiting researcher at the Financial Markets Group, the finance research centre at the London School of Economics and Political Science, during the year 2025. I also contribute to Insper's [Finance and Macroeconomics Centre](https://cefim-insper.github.io/).
 
