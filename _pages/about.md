@@ -7,7 +7,8 @@ description: "Mohammed Mehdi Kaebi is a PhD candidate in Finance at Insper, São
 author_profile: false
 hero:
   eyebrow: "PhD Candidate in Finance"
-  lede: "My research interests are *asset pricing*, *international finance*, *financial econometrics* and macroeconomics*. \\ I will be on the 2026/2027 finance job market"
+  lede: "My research interests are asset pricing, international finance, financial econometrics and macroeconomics. 
+   I will be on the 2026/2027 finance job market"
   # cv: "/files/cv.pdf"       # uncomment once a CV lives in /files/ to add a CV button
   # caption: "Photo caption"  # optional line under the portrait
 redirect_from: 
