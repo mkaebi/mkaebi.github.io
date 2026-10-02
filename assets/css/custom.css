@@ -1237,6 +1237,38 @@ a.badge:hover {
 }
 
 /* --------------------------------------------------------------------------
+   10b. CV page — download link plus the PDF embedded inline
+   -------------------------------------------------------------------------- */
+
+.cv-actions.cv-actions {
+  margin: 0 0 1.5rem;
+}
+
+.cv-actions.cv-actions .btn {
+  background-color: var(--accent);
+  background-image: none;
+}
+
+.cv-actions.cv-actions .btn:hover {
+  background-color: var(--accent-deep);
+}
+
+.cv-embed.cv-embed {
+  display: block;
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  border: 1px solid var(--rule);
+}
+
+/* Phones rarely render inline PDFs; the button above is the way in there. */
+@media (max-width: 600px) {
+  .cv-embed.cv-embed {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. Footer
    -------------------------------------------------------------------------- */
 
