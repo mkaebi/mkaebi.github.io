@@ -14,3 +14,7 @@ redirect_from:
 <object class="cv-embed fitvidsignore" data="{{ '/files/Kaebi_CV.pdf' | relative_url }}#view=FitH" type="application/pdf" aria-label="Curriculum vitae of Mohammed Mehdi Kaebi">
   <p>Your browser can't display the PDF here. <a href="{{ '/files/Kaebi_CV.pdf' | relative_url }}">Open the CV</a> instead.</p>
 </object>
+
+<div class="cv-pages" data-pdf="{{ '/files/Kaebi_CV.pdf' | relative_url }}" aria-label="Curriculum vitae of Mohammed Mehdi Kaebi"></div>
+
+<script src="{{ '/assets/js/cv.js' | relative_url }}" defer></script>

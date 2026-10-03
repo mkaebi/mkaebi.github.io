@@ -1276,10 +1276,28 @@ a.badge:hover {
   border: 1px solid var(--rule);
 }
 
-/* Phones rarely render inline PDFs; the button above is the way in there. */
+/* Phones rarely render inline PDFs, so there assets/js/cv.js draws the pages
+   onto canvases inside .cv-pages instead. */
+.cv-pages {
+  display: none;
+}
+
+.cv-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+
 @media (max-width: 600px) {
   .cv-embed.cv-embed {
     display: none;
+  }
+
+  .cv-pages {
+    display: block;
   }
 }
 
