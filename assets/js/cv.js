@@ -22,10 +22,15 @@
 
   function renderPage(pdf, n) {
     return pdf.getPage(n).then(function (page) {
+      // Size from the screen, not the host: the content column shrinks to fit
+      // its contents on phones, so the empty host can measure only a few
+      // hundred pixels and the page would be drawn tiny, then stretched.
+      // Draw at twice the screen's physical width so pinch-zoom stays sharp,
+      // capped to keep each canvas within mobile memory limits.
       var ratio = window.devicePixelRatio || 1;
-      var width = host.clientWidth;
-      var scale = width / page.getViewport({ scale: 1 }).width;
-      var viewport = page.getViewport({ scale: scale * ratio });
+      var screenWidth = Math.min(window.innerWidth, window.screen.width || window.innerWidth);
+      var target = Math.min(screenWidth * ratio * 2, 2400);
+      var viewport = page.getViewport({ scale: target / page.getViewport({ scale: 1 }).width });
 
       var canvas = document.createElement("canvas");
       canvas.className = "cv-page";

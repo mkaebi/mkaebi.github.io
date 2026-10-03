@@ -1296,8 +1296,11 @@ a.badge:hover {
     display: none;
   }
 
+  /* Explicit width: #main shrinks to fit its contents, and canvases would
+     otherwise be sized by it rather than by the screen. */
   .cv-pages {
     display: block;
+    width: calc(100vw - 3rem);
   }
 }
 
