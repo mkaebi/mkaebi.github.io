@@ -121,3 +121,16 @@ in_progress:
 
   - title: "Equity Option Surfaces and the Jump Composition of FX Variation"
   - title: "Estimating Prices of Risk Nonparametrically"
+
+# Papers discussed at conferences, newest first.
+#   title    Paper title.
+#   authors  Authors of the discussed paper.
+#   venue    Where it was discussed.
+discussions:
+  - title: "Fiscal Imbalances and Asset Returns: Cross-Sector Fluctuations under the Aggregate Budget Constraint"
+    authors: "Alberto Plazzi, Junxiong Gao, Rossen Valkanov and Yan Xu"
+    venue: "33rd AEFIN Finance Forum, 2026"
+
+  - title: "On-The-Run Liquidity Phenomenon in the US Treasury Bond Market: A TVP-VAR Analysis"
+    authors: "Antonio Díaz and Miles Livingston"
+    venue: "32nd AEFIN Finance Forum, 2025"

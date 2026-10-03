@@ -30,3 +30,16 @@ redirect_from:
     {% endfor %}
   </ul>
 {% endif %}
+
+{% assign discussions = site.data.papers.discussions %}
+
+{% if discussions and discussions.size > 0 %}
+  <h2>Discussions</h2>
+  <ul class="wip">
+    {% for item in discussions %}
+      <li>
+        {{ item.title }}{% if item.authors %} <span class="wip__authors">by {{ item.authors }}</span>{% endif %}{% if item.venue %} <span class="wip__venue">{{ item.venue }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

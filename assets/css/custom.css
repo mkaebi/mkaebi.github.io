@@ -1212,6 +1212,15 @@ a.badge:hover {
   font-size: 0.95rem;
 }
 
+/* Discussions reuse the WIP list; the venue sits on its own line beneath. */
+.wip__venue {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 0.2rem;
+}
+
 /* --------------------------------------------------------------------------
    10. Teaching list
    -------------------------------------------------------------------------- */
