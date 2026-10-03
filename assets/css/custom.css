@@ -1253,9 +1253,15 @@ a.badge:hover {
   background-color: var(--accent-deep);
 }
 
+/* The 64rem text column leaves a PDF too narrow to read, so the embed breaks
+   out of it: up to 80rem wide (2rem gutter each side on smaller screens),
+   centred on the column. */
 .cv-embed.cv-embed {
+  --cv-width: min(100vw - 4rem, 80rem);
   display: block;
-  width: 100%;
+  width: var(--cv-width);
+  max-width: none;
+  margin-left: calc(50% - var(--cv-width) / 2);
   height: 85vh;
   min-height: 600px;
   border: 1px solid var(--rule);
