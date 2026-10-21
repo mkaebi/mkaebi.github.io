@@ -65,7 +65,7 @@ working:
       - "26th Meeting of the Brazilian Finance Society"
       - "48th Meeting of the Brazilian Econometric Society (scheduled)"
 
-  - title: "Long-Run Interest Rate Differentials and the Profitability of Currency Carry"
+  - title: "Following the Stars: Long-Run Rates in the Carry Trade"
     id: long-run-interest-rate-differentials
     url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
     authors: "with Igor F. B. Martins"
@@ -74,7 +74,7 @@ working:
       differentials outperform and subsume traditional carry factors in
       explaining currency risk premia.
     abstract: >-
-      This paper examines the role of long-run and cyclical components of interest rate differentials in explaining the returns to currency carry strategies. We decompose long-term nominal interest rate differentials into trend and cycle components and show that the resulting signals are largely orthogonal to the traditional short-term carry signal. A simple strategy that goes long currencies above the median long-run differential and shorts those below delivers a statistically and economically significant annualized excess return of 2.97%. Relative to both traditional and static carry, our strategy achieves a higher Sharpe ratio before and after transaction costs, higher Sortino and Omega ratios, less negative skewness and lower excess kurtosis. We introduce a new tradable carry factor that earns a positive and significant risk premium across distinct cross-sections of currency returns and subsumes the pricing information of existing carry benchmarks, while retaining independent variation that neither can explain.
+      This paper shows that currency carry profitability is associated with persistent cross-country differences in long-run interest rates. Motivated by the Fisher equation, we estimate the long-run nominal rate of each country in real time as the fair value of its 10-year yield given inflation and growth, and construct $carry^\ast$, a tradable factor sorted on its differential. $Carry^\ast$ delivers an annualized excess return of 3.52\% with a higher Sharpe ratio than traditional and static carry. It commands a significant risk premium in Fama-MacBeth regressions, subsumes both benchmarks in spanning tests and keeps its abnormal return over other currency factors. Exchange rates offset the part of interest differentials unrelated to the long-run rate, but not the long-run part. The premium comes mainly from the inflation part of the long-run rate, while the real part is not priced. $Carry^\ast$ also loses less than carry in bad times, but it is more exposed to option-implied crash risk and oil risk.
     image: "papers/carry-star.png"
     image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
     status: "Under review"
