@@ -8,8 +8,18 @@ redirect_from:
   - /research.html
 ---
 
+{% assign jmp = site.data.papers.job_market %}
 {% assign working = site.data.papers.working %}
 {% assign wip = site.data.papers.in_progress %}
+
+{% if jmp and jmp.size > 0 %}
+  <h2>Job Market Paper</h2>
+  <ul class="papers">
+    {% for item in jmp %}
+      {% include paper.html paper=item %}
+    {% endfor %}
+  </ul>
+{% endif %}
 
 {% if working and working.size > 0 %}
   <h2>Working papers</h2>

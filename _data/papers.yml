@@ -37,10 +37,13 @@
 #   award          text: ...   and optionally   url: ...
 #   presentations  List of venues.
 #
+# job_market holds the job market paper, shown first under its own heading;
+# working holds the other working papers.
+#
 # Order here is the order on the page.
 # ============================================================================
 
-working:
+job_market:
   - title: "VIX Futures Term-Structure and Currency Returns"
     id: vix-futures-term-structure-and-currency-returns
     url: "https://dx.doi.org/10.2139/ssrn.5363287"
@@ -78,6 +81,7 @@ working:
       - "26th Meeting of the Brazilian Finance Society"
       - "48th Meeting of the Brazilian Econometric Society (scheduled)"
 
+working:
   - title: "Following the Stars: Long-Run Rates in the Carry Trade"
     id: long-run-interest-rate-differentials
     url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
