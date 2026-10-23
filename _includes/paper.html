@@ -26,9 +26,14 @@
 {% if p_pdf != "" %}
   {% unless p_pdf contains "://" %}{% assign p_pdf = p_pdf | prepend: "/files/" | prepend: base_path %}{% endunless %}
 {% endif %}
-{% comment %} Title and figure link to the external page, else to the hosted PDF. {% endcomment %}
+{% comment %}
+  The title links to the external page, else to the hosted PDF. The figure
+  does the reverse: the hosted PDF, else the external page.
+{% endcomment %}
 {% assign p_href = p_url %}
 {% if p_href == "" %}{% assign p_href = p_pdf %}{% endif %}
+{% assign p_fig_href = p_pdf %}
+{% if p_fig_href == "" %}{% assign p_fig_href = p_url %}{% endif %}
 {% assign p_id = p.id | strip %}
 {% if p_id == "" %}{% assign p_id = p_title | slugify %}{% endif %}
 
@@ -117,9 +122,9 @@
           keeps that description as its accessible name; with no alt text the
           link would be unlabelled, so it is hidden from assistive tech instead.
         {% endcomment %}
-        {% if p_href != "" %}<a href="{{ p_href }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
+        {% if p_fig_href != "" %}<a href="{{ p_fig_href }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
           <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
-        {% if p_href != "" %}</a>{% endif %}
+        {% if p_fig_href != "" %}</a>{% endif %}
       {% else %}
         <div class="paper__plate" aria-hidden="true"></div>
       {% endif %}

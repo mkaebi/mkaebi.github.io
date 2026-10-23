@@ -41,7 +41,7 @@ working:
   - title: "VIX Futures Term-Structure and Currency Returns"
     id: vix-futures-term-structure-and-currency-returns
     url: "https://dx.doi.org/10.2139/ssrn.5363287"
-    pdf: "VIX_TS_and_FX.pdf"
+    pdf: "MohammedMK_JMP_VIX_TS_FX.pdf"
     summary: >-
       VIX futures term-structure embed a price of risk in currency markets,
       consistent with an intermediary asset pricing model with volatility-hedging
@@ -85,7 +85,7 @@ working:
       differentials outperform and subsume traditional carry factors in
       explaining currency risk premia.
     abstract: >-
-      Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build carry\*. Carry\* earns 3.52% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. Carry* loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
+      Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build carry\*. Carry\* earns 3.52% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. Carry\* loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
     image: "papers/carry-star.png"
     image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
     status: "Under review"
@@ -99,7 +99,7 @@ working:
       correcting for it with heteroPCA delivers economically interpretable
       factors and superior cross-sectional pricing performance.
     abstract: >-
-      This paper examines the role of heteroskedasticity in extracting latent risk factors from asset returns. I show that standard principal component analysis suffers from distortions when assets exhibit heterogeneous idiosyncratic variances, leading factors to reflect clusters of idiosyncratic risk rather than true systematic risk. Building on recent developments in the statistics literature, I apply heteroskedastic PCA (heteroPCA) to correct for this bias by iteratively replacing the diagonal of the sample covariance matrix with estimates implied by the off-diagonal structure. The correction is purely statistical: it requires no characteristics, instruments, or auxiliary data beyond the return panel itself. This approach delivers superior out-of-sample cross-sectional pricing performance compared to standard PCA, with higher Sharpe ratios and lower average pricing errors across multiple equity and FX portfolios. The identified factors exhibit clear economic interpretability, and the implied stochastic discount factor achieves lower Hansen-Jagannathan distances. These results highlight that accounting for heteroskedasticity in idiosyncratic variance substantially improves factor estimation in asset pricing applications, across asset classes and at no additional data cost.
+      Principal component analysis extracts latent risk factors from the sample covariance matrix, whose diagonal mixes systematic and idiosyncratic variance. When idiosyncratic variances differ across assets, PCA overweights the noisiest assets, so its factors capture idiosyncratic rather than systematic risk. To correct this distortion, I apply heteroskedastic PCA, which iteratively replaces the diagonal with values implied by the covariances. This approach delivers superior out-of-sample cross-sectional pricing performance compared to standard PCA, with higher Sharpe ratios and lower pricing errors across equity and FX cross-sections. It also recovers economically interpretable factors that standard PCA leaves buried in noise. The gains are largest when the factor eigenvalues are poorly separated relative to idiosyncratic noise.
 
     image: "papers/heteropca.png"
     image_alt: "Stochastic discount factor weights on accrual-by-size portfolios under standard PCA versus heteroPCA"
