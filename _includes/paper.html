@@ -21,13 +21,21 @@
 {% assign p_status = p.status | strip %}
 {% assign p_award = p.award.text | strip %}
 {% assign p_award_url = p.award.url | strip %}
+{% assign p_pdf = p.pdf | strip %}
+{% comment %} A bare filename means a copy hosted in this repo's /files/. {% endcomment %}
+{% if p_pdf != "" %}
+  {% unless p_pdf contains "://" %}{% assign p_pdf = p_pdf | prepend: "/files/" | prepend: base_path %}{% endunless %}
+{% endif %}
+{% comment %} Title and figure link to the external page, else to the hosted PDF. {% endcomment %}
+{% assign p_href = p_url %}
+{% if p_href == "" %}{% assign p_href = p_pdf %}{% endif %}
 {% assign p_id = p.id | strip %}
 {% if p_id == "" %}{% assign p_id = p_title | slugify %}{% endif %}
 
 {% comment %} Label the outbound link by host, so the badge is informative. {% endcomment %}
 {% assign host_label = "Read paper" %}
 {% if p_url contains "ssrn" %}{% assign host_label = "SSRN" %}
-{% elsif p_url contains "drive.google" %}{% assign host_label = "PDF" %}
+{% elsif p_url contains "drive.google" %}{% assign host_label = "Drive" %}
 {% elsif p_url contains "arxiv" %}{% assign host_label = "arXiv" %}
 {% elsif p_url contains "doi.org" %}{% assign host_label = "DOI" %}
 {% endif %}
@@ -44,7 +52,7 @@
     <div class="paper__body">
 
       <h3 class="paper__title">
-        {% if p_url != "" %}<a href="{{ p_url }}">{{ p_title }}</a>{% else %}{{ p_title }}{% endif %}
+        {% if p_href != "" %}<a href="{{ p_href }}">{{ p_title }}</a>{% else %}{{ p_title }}{% endif %}
       </h3>
 
       {% if p_authors != "" %}
@@ -55,7 +63,7 @@
         <p class="paper__summary">{{ p_summary }}</p>
       {% endif %}
 
-      {% if p_award != "" or p_status != "" or p_url != "" %}
+      {% if p_award != "" or p_status != "" or p_url != "" or p_pdf != "" or p.links.size > 0 %}
         <ul class="paper__badges">
           {% if p_award != "" %}
             <li>
@@ -69,9 +77,18 @@
           {% if p_status != "" %}
             <li><span class="badge badge--status">{{ p_status }}</span></li>
           {% endif %}
+          {% if p_pdf != "" %}
+            <li><a class="badge" href="{{ p_pdf }}">PDF</a></li>
+          {% endif %}
           {% if p_url != "" %}
             <li><a class="badge" href="{{ p_url }}">{{ host_label }}</a></li>
           {% endif %}
+          {% for link in p.links %}
+            {% assign l_url = link.url | strip %}
+            {% if l_url != "" %}
+              <li><a class="badge" href="{{ l_url }}">{{ link.label | default: "Link" }}</a></li>
+            {% endif %}
+          {% endfor %}
         </ul>
       {% endif %}
 
@@ -100,9 +117,9 @@
           keeps that description as its accessible name; with no alt text the
           link would be unlabelled, so it is hidden from assistive tech instead.
         {% endcomment %}
-        {% if p_url != "" %}<a href="{{ p_url }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
+        {% if p_href != "" %}<a href="{{ p_href }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
           <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
-        {% if p_url != "" %}</a>{% endif %}
+        {% if p_href != "" %}</a>{% endif %}
       {% else %}
         <div class="paper__plate" aria-hidden="true"></div>
       {% endif %}

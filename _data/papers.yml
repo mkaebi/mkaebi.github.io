@@ -9,7 +9,16 @@
 #   id             Anchor slug. Gives each paper a permalink such as
 #                  /research/#covariance-implied-risk-factors, which opens the
 #                  abstract automatically. Keep it stable once shared.
-#   url            Link on the title. Omit for an unlinked (unposted) paper.
+#   url            Link on the title (SSRN, DOI, Drive, ...). Also shown as a
+#                  badge labelled by host. Omit for an unlinked paper.
+#   pdf            PDF hosted on this site. A bare filename is looked up in
+#                  /files/, e.g. "Carry_star.pdf" -> /files/Carry_star.pdf,
+#                  so upload the file there. Shown as a "PDF" badge, and used
+#                  as the title link when `url` is empty.
+#   links          Extra destinations, each shown as its own badge:
+#                    links:
+#                      - label: "Slides"
+#                        url: "https://..."
 #   authors        Co-authors, e.g. "with Igor F. B. Martins". Omit if solo.
 #   summary        One-line plain-language takeaway. Shown always.
 #   abstract       Full abstract. Shown in a collapsible "Abstract" dropdown.
@@ -68,13 +77,14 @@ working:
   - title: "Following the Stars: Long-Run Rates in the Carry Trade"
     id: long-run-interest-rate-differentials
     url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
+    pdf: "Carry_star.pdf"
     authors: "with Igor F. B. Martins"
     summary: >-
       Carry trades based on the long-run component of long-maturity yield
       differentials outperform and subsume traditional carry factors in
       explaining currency risk premia.
     abstract: >-
-      Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build $carry^\ast$. $Carry^\ast$ earns 3.52\% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. $Carry^\ast$ loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
+      Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build carry*. Carry* earns 3.52% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. Carry* loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
     image: "papers/carry-star.png"
     image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
     status: "Under review"
