@@ -2,7 +2,7 @@
 layout: home
 permalink: /
 title: "Mohammed Mehdi Kaebi"
-seo_title: "Mohammed Mehdi Kaebi, PhD Candidate in Finance at Insper"
+seo_title: "Mohammed Mehdi Kaebi"
 description: "Mohammed Mehdi Kaebi is a PhD candidate in Finance at Insper, São Paulo. His research covers empirical asset pricing and international finance."
 author_profile: false
 hero:
