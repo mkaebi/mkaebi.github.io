@@ -84,7 +84,7 @@ job_market:
 working:
   - title: "Following the Stars: Long-Run Rates in the Carry Trade"
     id: long-run-interest-rate-differentials
-    url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
+    #url: "https://drive.google.com/file/d/1GStiVtJjzZ6uNYpW21snYiN-nvWZc_8u/view?usp=drive_link"
     pdf: "Carry_star.pdf"
     authors: "with Igor F. B. Martins"
     summary: >-
