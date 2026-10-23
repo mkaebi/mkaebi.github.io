@@ -123,7 +123,13 @@
           link would be unlabelled, so it is hidden from assistive tech instead.
         {% endcomment %}
         {% if p_fig_href != "" %}<a href="{{ p_fig_href }}" tabindex="-1"{% if p_alt == "" %} aria-hidden="true"{% endif %}>{% endif %}
-          <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async">
+          {% comment %}
+            image_ratio fixes the figure's box (e.g. "5 / 4") and fits the
+            image inside it, so an unusually tall figure takes no more room
+            than its neighbours.
+          {% endcomment %}
+          {% assign p_ratio = p.image_ratio | strip %}
+          <img class="paper__thumb" src="{{ img_src }}" alt="{{ p_alt | escape }}" loading="lazy" decoding="async"{% if p_ratio != "" %} style="aspect-ratio: {{ p_ratio }}; object-fit: contain;"{% endif %}>
         {% if p_fig_href != "" %}</a>{% endif %}
       {% else %}
         <div class="paper__plate" aria-hidden="true"></div>

@@ -29,6 +29,9 @@
 #                  Aim for about 720px wide; it displays at ~300px.
 #                  If empty, a numbered plate is drawn instead — so the page
 #                  looks deliberate whether or not you have artwork yet.
+#   image_ratio    Optional box shape, width / height, e.g. "5 / 4". The image
+#                  is shrunk to fit inside it on its white card. Use it to stop
+#                  a tall figure from outgrowing the others.
 #   image_alt      Describe the figure for screen readers and search engines.
 #   status         Short state, e.g. "Under review", "R&R at ...".
 #   award          text: ...   and optionally   url: ...
@@ -102,6 +105,7 @@ working:
       Principal component analysis extracts latent risk factors from the sample covariance matrix, whose diagonal mixes systematic and idiosyncratic variance. When idiosyncratic variances differ across assets, PCA overweights the noisiest assets, so its factors capture idiosyncratic rather than systematic risk. To correct this distortion, I apply heteroskedastic PCA, which iteratively replaces the diagonal with values implied by the covariances. This approach delivers superior out-of-sample cross-sectional pricing performance compared to standard PCA, with higher Sharpe ratios and lower pricing errors across equity and FX cross-sections. It also recovers economically interpretable factors that standard PCA leaves buried in noise. The gains are largest when the factor eigenvalues are poorly separated relative to idiosyncratic noise.
 
     image: "papers/heteropca.png"
+    image_ratio: "5 / 4"
     image_alt: "Stochastic discount factor weights on accrual-by-size portfolios under standard PCA versus heteroPCA"
     presentations:
       - "Insper Macro & Finance Workshop"
