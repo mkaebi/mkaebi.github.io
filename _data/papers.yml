@@ -90,6 +90,7 @@ working:
     abstract: >-
       Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build carry\*. Carry\* earns 3.52% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. Carry\* loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
     image: "papers/carry-star.png"
+    image_ratio: "5 / 4"
     image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
     status: "Under review"
 
