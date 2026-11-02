@@ -53,21 +53,19 @@ job_market:
       consistent with an intermediary asset pricing model with volatility-hedging
       demand and arbitrage constraints.
     abstract: >-
-      I use the VIX futures term-structure to build novel currency risk factors and 
-      show that they are priced in the cross-section of currency returns and carry 
-      incremental predictive information for future returns. Currencies with greater 
-      exposure to the level and curvature factors earn a lower risk premium, acting 
-      as insurance, while those more exposed to the slope factor earn a higher premium. 
-      A portfolio that is long high-exposure currencies and short low-exposure currencies 
-      captures this risk-return dispersion, and its excess return can be understood as 
-      compensation for bearing a globally priced volatility shock. Decomposing the factor 
-      returns into news about expected future volatility and news about the variance-risk 
-      premium, I find that the risk premia are driven almost entirely by variance-risk-premium 
-      news, while expected-volatility news carries no price of risk. A Bayesian factor-selection 
-      procedure confirms that the term-structure factors enter the stochastic discount factor with 
-      high posterior probability. I rationalize these results with a two-agent preferred-habitat 
-      model in which experts have horizon-specific volatility hedging demands and arbitrageurs 
-      face funding and margin costs.
+      I use the VIX futures term-structure to build currency risk factors and
+      show that they are priced in the cross-section of currency returns and
+      help predict currency returns.
+      Currencies with greater exposure to the level and curvature factors
+      earn a lower risk premium, acting as insurance, while those more exposed
+      to the slope factor earn a higher premium, and the premia sit in the
+      variance-risk-premium component, not in news about expected future
+      volatility. A Bayesian factor-selection procedure places the term-structure factors
+      in the stochastic discount factor with high posterior probability. 
+      I rationalize these results with a two-agent preferred-habitat model
+      in which experts have horizon-specific volatility hedging demands and
+      arbitrageurs face funding and margin costs, and currency premia depend
+      on each country's share of global hedging demand relative to the US.
 
 
     image: "papers/vix-term-structure.png"
@@ -88,15 +86,15 @@ working:
     pdf: "Carry_star.pdf"
     authors: "with Igor F. B. Martins"
     summary: >-
-      Carry trades based on the long-run component of long-maturity yield
-      differentials outperform and subsume traditional carry factors in
-      explaining currency risk premia.
+      Carry trades based on real-time long-run interest rate differentials outperform and subsume traditional carry factors in explaining currency risk premia, a premium driven by long-run inflation.
     abstract: >-
       Persistent cross-country differences in long-run interest rates command a currency risk premium beyond the carry trade. Motivated by the Fisher equation, we estimate each country's long-run nominal rate in real time as the fair value of its 10-year yield given inflation and growth, and sort currencies on its differential to build carry\*. Carry\* earns 3.52% a year, with a higher Sharpe ratio than traditional and static carry, a significant alpha over both and over other currency factors, and a significant price of risk in the cross-section. Unlike carry, whose return is mostly static, two thirds of its return comes from updating positions as long-run rates move, and exchange rates do not offset the long-run part of interest differentials. The premium comes from the inflation part of the long-run rate, while the real part is not priced. Carry\* loses less than carry in bad times but is more exposed to option-implied crash risk and oil risk.
     image: "papers/carry-star.png"
     image_ratio: "5 / 4"
-    image_alt: "Cumulative returns 1988-2025 for the long-run carry strategy, which ends near 1.8, against the traditional carry trade and static carry, both near 1.0"
-    status: "Under review"
+    image_alt: 
+    presentations:
+      - "Insper Macro & Finance Workshop"
+    #status: "Under review"
 
   - title: "Covariance Implied Risk Factors"
     id: covariance-implied-risk-factors
@@ -108,7 +106,6 @@ working:
       factors and superior cross-sectional pricing performance.
     abstract: >-
       Principal component analysis extracts latent risk factors from the sample covariance matrix, whose diagonal mixes systematic and idiosyncratic variance. When idiosyncratic variances differ across assets, PCA overweights the noisiest assets, so its factors capture idiosyncratic rather than systematic risk. To correct this distortion, I apply heteroskedastic PCA, which iteratively replaces the diagonal with values implied by the covariances. This approach delivers superior out-of-sample cross-sectional pricing performance compared to standard PCA, with higher Sharpe ratios and lower pricing errors across equity and FX cross-sections. It also recovers economically interpretable factors that standard PCA leaves buried in noise. The gains are largest when the factor eigenvalues are poorly separated relative to idiosyncratic noise.
-
     image: "papers/heteropca.png"
     image_ratio: "5 / 4"
     image_alt: "Stochastic discount factor weights on accrual-by-size portfolios under standard PCA versus heteroPCA"
