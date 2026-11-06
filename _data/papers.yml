@@ -9,12 +9,13 @@
 #   id             Anchor slug. Gives each paper a permalink such as
 #                  /research/#covariance-implied-risk-factors, which opens the
 #                  abstract automatically. Keep it stable once shared.
-#   url            Link on the title (SSRN, DOI, Drive, ...). Also shown as a
-#                  badge labelled by host. Omit for an unlinked paper.
+#   url            External page (SSRN, DOI, Drive, ...). Shown as a badge
+#                  labelled by host, and used as the title link when `pdf`
+#                  is empty.
 #   pdf            PDF hosted on this site. A bare filename is looked up in
 #                  /files/, e.g. "Carry_star.pdf" -> /files/Carry_star.pdf,
 #                  so upload the file there. Shown as a "PDF" badge, and used
-#                  as the title link when `url` is empty.
+#                  as the title link.
 #   links          Extra destinations, each shown as its own badge:
 #                    links:
 #                      - label: "Slides"
