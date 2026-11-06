@@ -1,0 +1,11 @@
+{%- comment -%}
+  Prints an authors string with every name from _data/coauthors.yml linked.
+
+  Usage:  {% include coauthors.html text=item.authors %}
+{%- endcomment -%}
+{%- assign coauthors_text = include.text | strip -%}
+{%- for coauthor in site.data.coauthors -%}
+  {%- capture coauthor_link -%}<a href="{{ coauthor.url }}">{{ coauthor.name }}</a>{%- endcapture -%}
+  {%- assign coauthors_text = coauthors_text | replace: coauthor.name, coauthor_link -%}
+{%- endfor -%}
+{{- coauthors_text -}}

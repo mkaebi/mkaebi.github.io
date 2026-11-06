@@ -20,6 +20,7 @@
 #                      - label: "Slides"
 #                        url: "https://..."
 #   authors        Co-authors, e.g. "with Igor F. B. Martins". Omit if solo.
+#                  Names listed in _data/coauthors.yml are linked automatically.
 #   summary        One-line plain-language takeaway. Shown always.
 #   abstract       Full abstract. Shown in a collapsible "Abstract" dropdown.
 #                  Use the >- block below so you can paste multiple paragraphs

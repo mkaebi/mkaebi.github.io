@@ -1,0 +1,19 @@
+# ============================================================================
+# Co-author links
+# ----------------------------------------------------------------------------
+# Any `name` below that appears in an `authors` field of _data/papers.yml is
+# linked to its `url` on /research/ (see _includes/coauthors.html). The name
+# must match the text in papers.yml exactly, accents included.
+# ============================================================================
+
+- name: "Igor F. B. Martins"
+  url: "https://igorfbmartins.github.io/"
+
+- name: "Ruy M. Ribeiro"
+  url: "https://www.ruyribeiro.com/"
+
+- name: "Josué P. A. Costa"
+  url: "https://www.linkedin.com/in/josu%C3%A9-costa-40640a140/"
+
+- name: "Tomas Nóbrega"
+  url: "https://www.linkedin.com/in/tomasnobrega/"

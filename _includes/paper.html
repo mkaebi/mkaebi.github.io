@@ -61,7 +61,7 @@
       </h3>
 
       {% if p_authors != "" %}
-        <p class="paper__authors">{{ p_authors }}</p>
+        <p class="paper__authors">{% include coauthors.html text=p_authors %}</p>
       {% endif %}
 
       {% if p_summary != "" %}

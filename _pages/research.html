@@ -35,7 +35,7 @@ redirect_from:
   <ul class="wip">
     {% for item in wip %}
       <li>
-        {{ item.title }}{% if item.authors %} <span class="wip__authors">{{ item.authors }}</span>{% endif %}
+        {{ item.title }}{% if item.authors %} <span class="wip__authors">{% include coauthors.html text=item.authors %}</span>{% endif %}
       </li>
     {% endfor %}
   </ul>
